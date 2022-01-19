@@ -1,0 +1,38 @@
+# 数据库配置
+spring:
+  # mysql数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/vueblog?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=true&serverTimezone=UTC
+    username: root
+    password: ssx14233
+
+#port
+server:
+  port: 8081 # 设置端口号
+  servlet:
+    context-path: / #设置上下文路径
+
+# mybatis-plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打开SQL日志文件输出在控制台
+  global-config:
+    db-config:
+      id-type: auto # 全局的id生成策略
+  mapper-locations: classpath:mapper/*Mapper.xml # 加载xml映射文件
+  type-aliases-package: com.tionkior.entity # 设置别名
+
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 115.29.190.2:6379
+
+
+tionkior:
+  jwt:
+    # 加载密钥
+    secret: f4e2e5203434f86b67cde581c0f9eb5
+    # token有效时长, 7天, 单位秒
+    expire: 604800
+    header: Authorization
