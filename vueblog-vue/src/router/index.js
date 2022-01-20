@@ -27,8 +27,11 @@ const routes = [
         // 添加和编辑都是一个页面,后台判断如果没有则添加
         // 注意放在下面有id之前,不然它可能匹配到有id的路由
         path: '/blog/add',
-        name: 'BlogEdit',
-        component: BlogEdit
+        name: 'BlogAdd',
+        component: BlogEdit,
+        meta: {
+            requireAuth: true
+        }
     },
     {
         // 查看blog的话需要一个id,需要传入一个id
@@ -41,7 +44,10 @@ const routes = [
         // 编辑blog的话需要一个id,需要传入一个id
         path: '/blog/:blogId/edit',
         name: 'BlogEdit',
-        component: BlogEdit
+        component: BlogEdit,
+        meta: {
+            requireAuth: true
+        }
     }
 ]
 

@@ -55,7 +55,7 @@ public class AccountController {
         String jwt = jwtUtils.generateToken(user.getId());
         // 把jwt放到handler放回去
         response.setHeader("Authorization", jwt);
-        response.setHeader("Access-Control-Expose-Headers", "Authorization");
+        response.setHeader("Access-control-Expose-Headers", "Authorization");
         // 把用户的信息返回回去
         return Result.success(MapUtil.builder()
                 .put("id", user.getId())
